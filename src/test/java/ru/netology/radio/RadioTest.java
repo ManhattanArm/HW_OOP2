@@ -18,6 +18,15 @@ public class RadioTest {
     }
 
     @Test
+    public void numberOfStationsTest() {
+        Radio radio = new Radio(10);
+
+        int expected = 10;
+        int actual = radio.maxStationNumbers;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void stationNumberMoreMaxTest() {
         Radio radio = new Radio();
 
