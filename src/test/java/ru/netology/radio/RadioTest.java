@@ -19,10 +19,10 @@ public class RadioTest {
 
     @Test
     public void numberOfStationsTest() {
-        Radio radio = new Radio(10);
+        Radio radio = new Radio(20);
 
-        int expected = 10;
-        int actual = radio.getDefaultStation();
+        int expected = 20;
+        int actual = radio.getMaxNumberOfStations();
         Assertions.assertEquals(expected, actual);
     }
 
