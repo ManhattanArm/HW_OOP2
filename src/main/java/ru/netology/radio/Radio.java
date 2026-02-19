@@ -2,45 +2,43 @@ package ru.netology.radio;
 
 public class Radio {
     private int currentStationNumber;
-    private int getCurrentSoundVolume;
-    private int defaultMaxStationNumbers = 10;
+    private int currentSoundVolume;
+    private int defaultStation = 10;
     private final int minStationNumber = 0;
     private final int maxSoundVolume = 100;
     private final int minSoundVolume = 0;
+
+    public Radio() {}
+
+    public Radio(int numberOfStations) {
+        this.defaultStation = numberOfStations;
+    }
 
     public int getCurrentStationNumber() {
         return currentStationNumber;
     }
 
     public int getCurrentSoundVolume() {
-        return getCurrentSoundVolume;
+        return currentSoundVolume;
     }
 
-    public int getDefaultMaxStationNumbers() {
-        return defaultMaxStationNumbers;
+    public int getDefaultStation() {
+        return defaultStation;
     }
 
     public int getMinSoundVolume() {
         return minSoundVolume;
     }
 
-
-    public Radio() {
-    }
-
-    public Radio(int numberOfStations) {
-        this.defaultMaxStationNumbers = numberOfStations;
-    }
-
     public void setCurrentStationNumber(int newCurrentStationNumber) {
-        if (newCurrentStationNumber > defaultMaxStationNumbers - 1 || newCurrentStationNumber < minStationNumber) {
+        if (newCurrentStationNumber > defaultStation - 1 || newCurrentStationNumber < minStationNumber) {
             return;
         }
         this.currentStationNumber = newCurrentStationNumber;
     }
 
     public void next() {
-        if (currentStationNumber < defaultMaxStationNumbers - 1) {
+        if (currentStationNumber < defaultStation - 1) {
             currentStationNumber++;
         } else {
             currentStationNumber = minStationNumber;
@@ -51,7 +49,7 @@ public class Radio {
         if (currentStationNumber > minStationNumber) {
             currentStationNumber--;
         } else {
-            currentStationNumber = defaultMaxStationNumbers - 1;
+            currentStationNumber = defaultStation - 1;
         }
     }
 
@@ -59,23 +57,23 @@ public class Radio {
         if (newCurrentSoundVolume > maxSoundVolume || newCurrentSoundVolume < minSoundVolume) {
             return;
         }
-        this.getCurrentSoundVolume = newCurrentSoundVolume;
+        this.currentSoundVolume = newCurrentSoundVolume;
 
     }
 
     public void volumeUp() {
-        if (getCurrentSoundVolume < maxSoundVolume) {
-            getCurrentSoundVolume++;
+        if (currentSoundVolume < maxSoundVolume) {
+            currentSoundVolume++;
         } else {
-            getCurrentSoundVolume = maxSoundVolume;
+            currentSoundVolume = maxSoundVolume;
         }
     }
 
     public void volumeDown() {
-        if (getCurrentSoundVolume > minSoundVolume) {
-            getCurrentSoundVolume--;
+        if (currentSoundVolume > minSoundVolume) {
+            currentSoundVolume--;
         } else {
-            getCurrentSoundVolume = minSoundVolume;
+            currentSoundVolume = minSoundVolume;
         }
     }
 }

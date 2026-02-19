@@ -22,7 +22,7 @@ public class RadioTest {
         Radio radio = new Radio(10);
 
         int expected = 10;
-        int actual = radio.getDefaultMaxStationNumbers();
+        int actual = radio.getDefaultStation();
         Assertions.assertEquals(expected, actual);
     }
 
